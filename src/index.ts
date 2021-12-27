@@ -1,4 +1,7 @@
-import {ApplicationConfig, FullCycleCatalogApiApplication} from './application';
+import {ApplicationConfig} from '@loopback/core';
+import {FullCycleCatalogApiApplication} from './application';
+import './bootstrap';
+
 
 export * from './application';
 
