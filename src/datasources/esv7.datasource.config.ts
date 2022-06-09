@@ -1,16 +1,39 @@
 import dataSource from './esv7.datasource.config.json'
 export default {
   ...dataSource,
-  "connector": "esv6",
-  "index": "catalog",
-  "version": 7,
-  // "defaultSize": "",
-  "configuration": {
-    "node": process.env.ELASTIC_SEARCH_HOST,
-    "requestTimeout": process.env.ELASTIC_SEARCH_REQUEST_TIMEOUT,
-    "pingTimeout": process.env.ELASTIC_SEARCH_PING_TIMEOUT
+  connector: "esv6",
+  index: "catalog",
+  version: 7,
+  // "defaultSize: "",
+  configuration: {
+    node: process.env.ELASTIC_SEARCH_HOST,
+    requestTimeout: process.env.ELASTIC_SEARCH_REQUEST_TIMEOUT,
+    pingTimeout: process.env.ELASTIC_SEARCH_PING_TIMEOUT
   },
-  "mappingProperties": {
-
+  mappingProperties: {
+    docType: {
+      type: "keyword"
+    },
+    id: {
+      type: "keyword",
+    },
+    name: {
+      type: "text",
+      fields: {
+        keyword: {
+          type: "keyword",
+          "ignore_above": 256
+        }
+      }
+    },
+    "is_active": {
+      type: "boolean"
+    },
+    "created_at": {
+      type: "date"
+    },
+    "updated_at": {
+      type: "date"
+    },
   }
 }

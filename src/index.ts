@@ -1,6 +1,6 @@
+import './bootstrap';
 import {ApplicationConfig} from '@loopback/core';
 import {FullCycleCatalogApiApplication} from './application';
-import './bootstrap';
 
 
 export * from './application';
